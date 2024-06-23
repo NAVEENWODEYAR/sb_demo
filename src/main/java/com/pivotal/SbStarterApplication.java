@@ -8,6 +8,7 @@ public class SbStarterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SbStarterApplication.class, args);
+		System.out.println("SpringSource,Pivotal,Rod Johnson");
 	}
 
 }

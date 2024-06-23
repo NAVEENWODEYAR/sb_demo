@@ -1,0 +1,38 @@
+
+server:
+  port: 8899
+  servlet:
+    context-path: /sb-starter
+
+spring:
+  application:
+    name: DEV ENVIRONMENT
+  security:
+    user:
+      name: dev
+      password: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pivotaldb?createDatabaseIfNotExist=true
+    username: root
+    password: boss
+  jpa:
+    database: mysql
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+logging:
+  level:
+    root: DEBUG
+#    org.springframework: DEBUG
+#    org.hibernate: DEBUG
+#    com.pivotal: DEBUG
