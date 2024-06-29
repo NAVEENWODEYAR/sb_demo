@@ -30,9 +30,9 @@ spring:
       repositories:
         enabled: true
 
-logging:
-  level:
-    root: DEBUG
-#    org.springframework: DEBUG
-#    org.hibernate: DEBUG
-#    com.pivotal: DEBUG
+#logging:
+#  level:
+#    root: DEBUG
+##    org.springframework: DEBUG
+##    org.hibernate: DEBUG
+##    com.pivotal: DEBUG

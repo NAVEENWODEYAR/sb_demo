@@ -1,5 +1,8 @@
 package com.pivotal.entity;
-
+/*
+ * @author Naveen K Wodeyar
+ * @date 23/06/2024
+ */
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,11 +1,12 @@
 package com.pivotal.dto;
-
+/*
+ * @author Naveen K Wodeyar
+ * @date 23/06/2024
+ */
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 @Data
 @AllArgsConstructor

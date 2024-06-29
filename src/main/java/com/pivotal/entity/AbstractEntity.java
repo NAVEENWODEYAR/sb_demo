@@ -1,5 +1,8 @@
 package com.pivotal.entity;
-
+/*
+* @author Naveen K Wodeyar
+* @date 23/06/2024
+ */
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 import lombok.Data;
