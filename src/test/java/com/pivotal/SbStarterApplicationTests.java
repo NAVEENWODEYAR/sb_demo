@@ -5,7 +5,6 @@ import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-@InjectMocks
 class SbStarterApplicationTests {
 
 	@Test
