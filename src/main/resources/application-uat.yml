@@ -1,0 +1,40 @@
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:1996/batchDB?createDatabaseIfNotExist=true
+    username: root
+    password: boss
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: always
+    logging:
+      level:
+        sql: DEBUG
+        jdbc: DEBUG
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: DEBUG
+          type: DEBUG
+      spring:
+        framework: DEBUG
+
+  actuator:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
+    endpoint:
+      health:
+        show-details: always
