@@ -11,7 +11,6 @@ public class SbStarterApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SbStarterApplication.class, args);
-		System.out.println("SpringSource,\n Pivotal,\n Rod Johnson");
 		System.out.println("\nSPRING\n  BATCH\n");
 	}
 

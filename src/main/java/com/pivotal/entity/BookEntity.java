@@ -8,17 +8,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author NaveenWodeyar
  * @date 04-Sept-2024
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "BATCH_BOOK")
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -26,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class BookEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long bookId;
 	
 	private String bookTitle;
