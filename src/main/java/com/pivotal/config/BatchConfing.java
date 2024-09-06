@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.core.job.builder.JobBuilder;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
@@ -30,6 +31,7 @@ import com.pivotal.entity.BookEntity;
  * @date 04-Sept-2024
  */
 @Configuration
+@EnableBatchProcessing
 public class BatchConfing {
 	
 	@Bean
@@ -68,7 +70,7 @@ public class BatchConfing {
 	@Bean
 	@StepScope
 	public FlatFileItemReader<BookEntity> reader(){
-		return new FlatFileItemReaderBuilder()
+		return new FlatFileItemReaderBuilder<BookEntity>()
 				.name("bookReader")
 				.resource(new ClassPathResource("MOCK_DATA.csv"))
 				.delimited()

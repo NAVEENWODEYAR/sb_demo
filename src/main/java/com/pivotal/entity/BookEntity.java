@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 public class BookEntity {
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long bookId;
 	
 	private String bookTitle;
