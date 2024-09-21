@@ -22,9 +22,9 @@ import io.swagger.v3.oas.annotations.servers.ServerVariable;
 @EnableCaching
 @OpenAPIDefinition(
 		info = @Info(
-				title = "ASFALEA[ασφάλεια,Greek]~~[SECURITY]",
+				title = "SPRING_BOOT",
 				version = "1.0",
-				description = "Spring Boot demo project for spring_security,",
+				description = "Spring Boot demo project for spring_boot,",
 				termsOfService = "http://terms.example.com",
 				contact = @Contact(
 						name = "Naveen K Wodeyar",
@@ -38,13 +38,13 @@ import io.swagger.v3.oas.annotations.servers.ServerVariable;
 		),
 		servers = {
 				@Server(
-						url = "http://localhost:8071",
-						description = "Testing server",
+						url = "http://localhost:8899",
+						description = "Developer testing server",
 						variables = {
 								@ServerVariable(
 										name = "port",
 										description = "Port number",
-										defaultValue = "7070"
+										defaultValue = "8899"
 								)
 						}
 				),
@@ -56,14 +56,7 @@ import io.swagger.v3.oas.annotations.servers.ServerVariable;
 		externalDocs = @ExternalDocumentation(
 				description = "Find more info here",
 				url = "http://example.com/docs"
-		),
-		security = @SecurityRequirement(name = "bearerAuth")
-)
-@SecurityScheme(
-		name = "bearerAuth",
-		type = SecuritySchemeType.HTTP,
-		scheme = "bearer",
-		bearerFormat = "JWT"
+		)
 )
 public class SbStarterApplication {
 
