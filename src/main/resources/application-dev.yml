@@ -1,12 +1,10 @@
 
 server:
   port: 8899
-  servlet:
-    context-path: /sb
 
 spring:
   application:
-    name: DEV ENVIRONMENT
+    name: SPRING_BOOT
   security:
     user:
       name: dev

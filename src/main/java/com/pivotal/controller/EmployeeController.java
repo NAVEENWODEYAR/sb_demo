@@ -6,9 +6,12 @@ package com.pivotal.controller;
 import com.pivotal.dto.EmployeeDto;
 import com.pivotal.service.EmployeeService;
 
+import java.util.*;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
@@ -21,7 +24,6 @@ public class EmployeeController {
 	
 	private static final Logger log = LoggerFactory.getLogger(EmployeeController.class);
 	
-
     @Autowired
     private EmployeeService employeeService;
 
@@ -31,10 +33,12 @@ public class EmployeeController {
     }
     
     @GetMapping("/java")
-    public String javaVersion() {
-		log.info("Java Version");
-		return "\nJava Version-->"+System.getProperty("java.version");
-	}
+    public Map<String, String> javaVersion() {
+        log.info("Java Version");
+        Map<String, String> response = new HashMap<>();
+        response.put("javaVersion", System.getProperty("java.version"));
+        return response;
+    }
 
     @GetMapping("/listing")
     @Cacheable(value = "Employee List")
@@ -50,7 +54,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/{empId}")
-    @Cacheable(value = "Employee")
+    @Cacheable(value = "Employee",key = "#Id")
     public ResponseEntity<Object> getEmployeeById(@PathVariable Long empId){
     	log.error("Employee found from db");
         return ResponseEntity.ok(employeeService.getById(empId));
@@ -63,6 +67,7 @@ public class EmployeeController {
     	return ResponseEntity.ok(employeeService.updateEmployee(request, empId));
     }
 
+    @CacheEvict(value = "Employee",key = "#Id",condition = "#Id>=5")
     @DeleteMapping("/delete/{empId}")
     public ResponseEntity<Object> deleteEmployee(@PathVariable Long empId){
     	log.debug("Deleted employee from db");

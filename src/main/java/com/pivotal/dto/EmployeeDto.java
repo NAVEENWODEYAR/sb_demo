@@ -17,6 +17,10 @@ import javax.validation.constraints.*;
 @JsonIgnoreProperties
 public class EmployeeDto {
 
+    public interface Create{};
+
+    public interface Update{};
+
     private Long empId;
 
     @NotBlank(groups = {Create.class,Update.class},message = "Employee name can't be empty,Please enter the name")
@@ -35,9 +39,5 @@ public class EmployeeDto {
 
     @NotBlank(groups = {Create.class,Update.class},message = "Employee grade can't be empty,Please enter the name")
     private Character empGrade;
-
-    public interface Create{};
-
-    public interface Update{};
 
 }
