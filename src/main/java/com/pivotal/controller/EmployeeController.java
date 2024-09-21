@@ -6,6 +6,8 @@ package com.pivotal.controller;
 import com.pivotal.dto.EmployeeDto;
 import com.pivotal.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +19,13 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-
     @GetMapping("/test")
     public ResponseEntity<?> testEndPoint(){
         return new ResponseEntity<>("Welcome!,", HttpStatus.OK);
     }
 
     @GetMapping("/listing")
+    @Cacheable(value = "Employee List")
     public ResponseEntity<Object> getEmployeeList(){
         return ResponseEntity.ok(employeeService.getEmployeeList());
     }
@@ -34,12 +36,13 @@ public class EmployeeController {
     }
 
     @GetMapping("/getById/{empId}")
+    @Cacheable(value = "Employee")
     public ResponseEntity<Object> getEmployeeById(@PathVariable Long empId){
         return ResponseEntity.ok(employeeService.getById(empId));
     }
 
-
     @PutMapping("/edit/{empId}")
+    @CachePut(value = "Employee update")
     public ResponseEntity<Object> editEmployee(@PathVariable EmployeeDto request, @PathVariable Long empId){
         return ResponseEntity.ok(employeeService.updateEmployee(request, empId));
     }
