@@ -6,6 +6,8 @@ package com.pivotal.controller;
 import com.pivotal.dto.EmployeeDto;
 import com.pivotal.service.EmployeeService;
 
+import jakarta.websocket.server.PathParam;
+
 import java.util.*;
 
 import org.slf4j.Logger;
@@ -47,8 +49,14 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeService.getEmployeeList());
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Object> saveEmployee(@RequestBody EmployeeDto request){
+    @GetMapping("/byName/{name}")
+    public ResponseEntity<Object> saveEmployee(@PathParam("name") String name){
+    	log.info("Employee  from db");
+        return ResponseEntity.ok(employeeService.getByName(name));
+    }
+    
+    @PostMapping("/save")
+    public ResponseEntity<Object> saveEmp(@RequestBody EmployeeDto request){
     	log.info("Employee persisted to db");
         return ResponseEntity.ok(employeeService.saveEmployee(request));
     }

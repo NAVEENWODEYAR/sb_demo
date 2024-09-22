@@ -42,4 +42,8 @@ public class EmployeeService {
         employeeRepo.deleteById(empId);
         return "Employee deleted successfully!";
     }
+    
+    public Employee getByName(String name) {
+        return employeeRepo.findByEmpName(name);
+    }
 }

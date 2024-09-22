@@ -4,8 +4,12 @@ import com.pivotal.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
+import java.util.List;
+
 
 @Repository
 @RepositoryRestResource(path = "myBooks",collectionResourceRel = "book")
 public interface EmployeeRepo extends JpaRepository<Employee,Long> {
+	
+	Employee findByEmpName(String empName);
 }
