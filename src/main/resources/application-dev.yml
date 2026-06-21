@@ -7,8 +7,8 @@ spring:
     name: SPRING_BOOT
   security:
     user:
-      name: dev
-      password: dev
+      name: demo
+      password: demo
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/pivotaldb?createDatabaseIfNotExist=true
