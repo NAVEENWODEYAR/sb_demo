@@ -45,13 +45,13 @@ public class EmployeeController {
     @GetMapping("/listing")
     @Cacheable(value = "Employee List")
     public ResponseEntity<Object> getEmployeeList(){
-    	log.info("Employee list fetched from db");
+    	log.info("Employee details list fetched from db");
         return ResponseEntity.ok(employeeService.getEmployeeList());
     }
 
     @GetMapping("/byName/{name}")
     public ResponseEntity<Object> saveEmployee(@PathParam("name") String name){
-    	log.info("Employee  from db");
+    	log.info("Employee  detail from db");
         return ResponseEntity.ok(employeeService.getByName(name));
     }
     
@@ -64,7 +64,7 @@ public class EmployeeController {
     @GetMapping("/{empId}")
     @Cacheable(value = "Employee",key = "#Id")
     public ResponseEntity<Object> getEmployeeById(@PathVariable Long empId){
-    	log.error("Employee found from db");
+    	log.error("Employee details found from db");
         return ResponseEntity.ok(employeeService.getById(empId));
     }
 
@@ -78,7 +78,7 @@ public class EmployeeController {
     @CacheEvict(value = "Employee",key = "#Id",condition = "#Id>=5")
     @DeleteMapping("/delete/{empId}")
     public ResponseEntity<Object> deleteEmployee(@PathVariable Long empId){
-    	log.debug("Deleted employee from db");
+    	log.debug("Deleted employee details from db");
         return ResponseEntity.ok(employeeService.deleteEmployee(empId));
     }
 }
