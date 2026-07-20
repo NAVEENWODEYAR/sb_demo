@@ -45,7 +45,7 @@ public class EmployeeController {
     @GetMapping("/listing")
     @Cacheable(value = "Employee List")
     public ResponseEntity<Object> getEmployeeList(){
-    	log.info("Employee details list fetched from db");
+    	log.info("Employee list fetched from db");
         return ResponseEntity.ok(employeeService.getEmployeeList());
     }
 
@@ -57,7 +57,7 @@ public class EmployeeController {
     
     @PostMapping("/save")
     public ResponseEntity<Object> saveEmp(@RequestBody EmployeeDto request){
-    	log.info("Employee persisted to db");
+    	log.info("Employee record persisted to db");
         return ResponseEntity.ok(employeeService.saveEmployee(request));
     }
 
@@ -78,7 +78,7 @@ public class EmployeeController {
     @CacheEvict(value = "Employee",key = "#Id",condition = "#Id>=5")
     @DeleteMapping("/delete/{empId}")
     public ResponseEntity<Object> deleteEmployee(@PathVariable Long empId){
-    	log.debug("Deleted employee details from db");
+    	log.debug("Deleted employee record details from db");
         return ResponseEntity.ok(employeeService.deleteEmployee(empId));
     }
 }
