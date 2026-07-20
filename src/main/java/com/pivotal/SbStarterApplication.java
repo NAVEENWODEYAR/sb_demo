@@ -36,7 +36,7 @@ import io.swagger.v3.oas.annotations.servers.ServerVariable;
 		servers = {
 				@Server(
 						url = "http://localhost:8899",
-						description = "Developer testing server",
+						description = "Developer testing/environment server",
 						variables = {
 								@ServerVariable(
 										name = "port",
@@ -47,7 +47,7 @@ import io.swagger.v3.oas.annotations.servers.ServerVariable;
 				),
 				@Server(
 						url = "http://production-server.com",
-						description = "Production server"
+						description = "Production server/environment"
 				)
 		},
 		externalDocs = @ExternalDocumentation(
