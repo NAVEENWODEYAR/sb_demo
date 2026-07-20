@@ -26,7 +26,7 @@ public class EmployeeService {
         Employee employee = new Employee();
         BeanUtils.copyProperties(request,employee);
         employeeRepo.save(employee);
-        return "Employee added successfully!,";
+        return "Employee record added successfully!,";
     }
 
     public Employee getById(Long empId) {
@@ -40,7 +40,7 @@ public class EmployeeService {
 
     public String deleteEmployee(Long empId) {
         employeeRepo.deleteById(empId);
-        return "Employee deleted successfully!";
+        return "Employee record deleted successfully!";
     }
     
     public Employee getByName(String name) {
